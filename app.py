@@ -9,7 +9,7 @@ from tkinter.filedialog import askopenfilename
 def get_names():
     with open(askopenfilename(initialdir=os.curdir, filetypes=[("text", "*.txt")]), encoding='utf-8') as file:
         print('Reading Names')
-        return file.read().splitlines()
+        return [x.strip() for x in file.read().splitlines()]
 
 
 def apply_template(names):
